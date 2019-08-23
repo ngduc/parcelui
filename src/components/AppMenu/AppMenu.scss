@@ -1,0 +1,11 @@
+.main {
+    margin: 10px 0;
+
+    li {
+        color: blue;
+        cursor: pointer;
+        &:hover {
+            color: orange;
+        }
+    }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "parcelui",
+  "version": "0.0.1",
+  "description": "parcelui - Parcel + Typescript + React + CSS Modules + SASS",
+  "author": "Duc Nguyen",
+  "private": false,
+  "license": "MIT",
+  "engines": {
+    "node": ">=8",
+    "yarn": "*"
+  },
+  "dependencies": {
+    "components": "^0.1.0",
+    "react": "^16.6.3",
+    "react-dom": "^16.4.2"
+  },
+  "devDependencies": {
+    "@types/node": "^10.7.0",
+    "@types/react": "^16.7.17",
+    "@types/react-dom": "^16.0.7",
+    "autoprefixer": "^9.6.1",
+    "concurrently": "^4.1.2",
+    "parcel": "^1.10.3",
+    "parcel-plugin-typed-css-modules": "^1.1.0",
+    "postcss-modules": "^1.4.1",
+    "rimraf": "^3.0.0",
+    "sass": "^1.22.10",
+    "typescript": "^3.5.3"
+  },
+  "scripts": {
+    "build": "rimraf ./dist && parcel build ./src/index.html",
+    "start": "parcel ./src/index.html",
+    "dev": "concurrently -r \"tsc --noEmit --watch\" \"npm:start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ngduc/parcelui.git"
+  },
+  "keywords": ["parcel", "parcelui", "typescript", "react", "css", "sass"]
+}
