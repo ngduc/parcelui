@@ -5,7 +5,12 @@
       "~*": ["./*"]
     },
     "jsx": "react",
-    "typeRoots": ["node_modules/@types"]
+    "typeRoots": ["node_modules/@types"],
+    "target": "es5",
+    "module": "esnext",
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "lib": ["es2017", "dom"]
   },
   "include": ["src/**/*"]
 }

@@ -1,6 +1,10 @@
-# 📦 Parcel UI
+# 🚀 Parcel UI
 
-Parcel + Typescript + React + CSS Modules + SASS
+Parcel + Typescript + React + Router + CSS Modules + SASS
+
+And more:
+- Lazy loading (code splitting) for a page (Route).
+- CSS scoping using CSS Modules: just import a local CSS or SASS file and use it.
 
 ### 🔧 Installation
 
@@ -14,7 +18,7 @@ yarn
 - Update `package.json` with your information.
 - Run `yarn dev` then open http://localhost:1234/
 
-### 🔧 Commands
+### ⚙️ Commands
 
 ```
 yarn dev      launch DEV mode (tsc watch, auto reload)

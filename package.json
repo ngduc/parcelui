@@ -1,7 +1,7 @@
 {
   "name": "parcelui",
-  "version": "0.0.1",
-  "description": "parcelui - Parcel + Typescript + React + CSS Modules + SASS",
+  "version": "0.0.2",
+  "description": "parcelui - Parcel + Typescript + React + Router + CSS Modules + SASS",
   "author": "Duc Nguyen",
   "private": false,
   "license": "MIT",
@@ -12,7 +12,8 @@
   "dependencies": {
     "components": "^0.1.0",
     "react": "^16.6.3",
-    "react-dom": "^16.4.2"
+    "react-dom": "^16.4.2",
+    "react-router-dom": "^5.0.1"
   },
   "devDependencies": {
     "@types/node": "^10.7.0",
@@ -36,5 +37,13 @@
     "type": "git",
     "url": "https://github.com/ngduc/parcelui.git"
   },
-  "keywords": ["parcel", "parcelui", "typescript", "react", "css", "sass"]
+  "keywords": [
+    "parcel",
+    "parcelui",
+    "typescript",
+    "react",
+    "router",
+    "css",
+    "sass"
+  ]
 }
