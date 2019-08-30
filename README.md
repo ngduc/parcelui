@@ -1,5 +1,7 @@
 # 🚀 Parcel UI
 
+[![Build Status](https://travis-ci.org/ngduc/parcelui.svg?branch=master)](https://travis-ci.org/ngduc/parcelui)
+
 Parcel + Typescript + React + Router + CSS Modules + SASS + Jest
 
 And more:

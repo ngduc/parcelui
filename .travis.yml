@@ -1,0 +1,17 @@
+language: node_js
+node_js: '8'
+
+git:
+  depth: 3
+
+branches:
+  only:
+    - master
+    - /^greenkeeper/.*$/
+
+env:
+  global:
+    - NODE_ENV=test
+
+script: yarn test
+# after_success: yarn coverage
