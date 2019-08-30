@@ -1,14 +1,9 @@
 import * as React from 'react'
-import AppMenu from './components/AppMenu/AppMenu'
+import './styles/main.scss'
 
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Home from './components/Home/Home'
 
-const Home = () => (
-  <div>
-    <AppMenu />
-    Home Page
-  </div>
-)
 const ContactUs = React.lazy(() => import('./components/ContactUs/ContactUs'))
 
 const withSuspense = Component => {
