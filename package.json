@@ -1,6 +1,6 @@
 {
   "name": "parcelui",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "parcelui - Parcel + Typescript + React + Router + CSS Modules + SASS",
   "author": "Duc Nguyen",
   "private": false,
@@ -17,11 +17,20 @@
     "react-router-dom": "^5.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@types/jest": "^24.0.18",
     "@types/node": "^10.7.0",
     "@types/react": "^16.7.17",
     "@types/react-dom": "^16.0.7",
     "autoprefixer": "^9.6.1",
+    "babel-jest": "^24.9.0",
     "concurrently": "^4.1.2",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
     "parcel": "^1.10.3",
     "parcel-plugin-typed-css-modules": "^1.1.0",
     "postcss-modules": "^1.4.1",
@@ -32,7 +41,9 @@
   "scripts": {
     "build": "rimraf ./dist && parcel build ./src/index.html",
     "start": "parcel ./src/index.html",
-    "dev": "concurrently -r \"tsc --noEmit --watch\" \"npm:start\""
+    "dev": "concurrently -r \"tsc --noEmit --watch\" \"npm:start\"",
+    "dev:test": "jest --watch",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -46,5 +57,27 @@
     "router",
     "css",
     "sass"
-  ]
+  ],
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "setupFiles": [
+      "raf/polyfill"
+    ],
+    "testRegex": "/__tests__/.*\\.(ts|tsx|js)$",
+    "setupFilesAfterEnv": [
+      "<rootDir>tools/setupTests.ts"
+    ],
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest",
+      "^.+.js$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    }
+  }
 }
