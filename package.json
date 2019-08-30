@@ -1,6 +1,6 @@
 {
   "name": "parcelui",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "parcelui - Parcel + Typescript + React + Router + CSS Modules + SASS",
   "author": "Duc Nguyen",
   "private": false,
