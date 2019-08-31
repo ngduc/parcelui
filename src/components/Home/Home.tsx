@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { view } from 'react-easy-state'
-import todoStore from '../../stores/todoStore'
+import todoStore from 'stores/todoStore'
 
 export default view(() => {
   const { items, create, remove } = todoStore
