@@ -1,6 +1,6 @@
 {
   "name": "parcelui",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "parcelui - Parcel + Typescript + React + Router + CSS Modules + SASS",
   "author": "Duc Nguyen",
   "private": false,
@@ -59,14 +59,19 @@
     "sass"
   ],
   "jest": {
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
       "js"
     ],
-    "setupFiles": [
-      "raf/polyfill"
-    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    },
     "testRegex": "/__tests__/.*\\.(ts|tsx|js)$",
     "setupFilesAfterEnv": [
       "<rootDir>tools/setupTests.ts"
@@ -74,10 +79,11 @@
     "transform": {
       "^.+\\.[t|j]sx?$": "babel-jest",
       "^.+.js$": "babel-jest"
-    },
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
-      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
     }
+  },
+  "alias": {
+    "components": "./src/components",
+    "stores": "./src/stores",
+    "utils": "./src/utils"
   }
 }

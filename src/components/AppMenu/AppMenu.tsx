@@ -18,7 +18,9 @@ const ListItemLink = ({ label, to, ...rest }) => (
     path={to}
     children={({ match }) => (
       <li className={match ? 'active' : ''}>
-        <Link to={to} {...rest}>{label}</Link>
+        <Link to={to} {...rest}>
+          {label}
+        </Link>
       </li>
     )}
   />
