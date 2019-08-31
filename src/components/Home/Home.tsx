@@ -9,21 +9,22 @@ export default view(() => {
       <div>Home Page</div>
 
       <button data-fetch onClick={fetchItems}>
-        fetchItems
+        Fetch API
       </button>
       <button data-add onClick={create}>
         ＋ Add Item
       </button>
 
       <ul>
-        {items.map((item, idx) => (
-          <li key={idx}>
-            {item.title}{' '}
-            <button data-remove onClick={() => remove(idx)}>
-              X
-            </button>
-          </li>
-        ))}
+        {items &&
+          items.map((item, idx) => (
+            <li key={idx}>
+              {item.title}{' '}
+              <button data-remove onClick={() => remove(idx)}>
+                X
+              </button>
+            </li>
+          ))}
       </ul>
     </div>
   )

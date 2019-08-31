@@ -47,10 +47,10 @@
   "scripts": {
     "build": "rimraf ./dist && parcel build ./src/index.html",
     "start": "parcel ./src/index.html",
-    "mock": "json-server ./tools/mockData/jsonData.js --port 3003",
+    "mock": "$(cat .env | xargs -n1 echo export) && json-server ./tools/mockData/jsonData.js --port $API_PORT",
     "dev": "concurrently -r \"tsc --noEmit --watch\" \"npm:start\" \"npm:mock\"",
-    "dev:test": "jest --watch",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -99,6 +99,9 @@
       "\\.(css|less|scss|sass)$": "identity-obj-proxy"
     },
     "testRegex": "/__tests__/.*\\.(ts|tsx|js)$",
+    "setupFiles": [
+      "dotenv/config"
+    ],
     "setupFilesAfterEnv": [
       "<rootDir>tools/setupTests.ts"
     ],
