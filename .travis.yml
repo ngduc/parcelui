@@ -13,5 +13,8 @@ env:
   global:
     - NODE_ENV=test
 
+before_script:
+  - yarn mock &
+
 script: yarn test
 # after_success: yarn coverage

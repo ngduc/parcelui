@@ -3,20 +3,26 @@ import { view } from 'react-easy-state'
 import todoStore from 'stores/todoStore'
 
 export default view(() => {
-  const { items, create, remove } = todoStore
+  const { items, create, remove, fetchItems } = todoStore
   return (
     <div>
       <div>Home Page</div>
-      <button onClick={create}>＋ Add Item</button>
+      <button data-fetch onClick={fetchItems}>
+        Fetch API
+      </button>
+      <button data-add onClick={create}>
+        ＋ Add Item
+      </button>
       <ul>
-        {items.map((item, idx) => (
-          <li key={idx}>
-            {item.title}{' '}
-            <button data-remove onClick={() => remove(idx)}>
-              X
-            </button>
-          </li>
-        ))}
+        {items &&
+          items.map((item, idx) => (
+            <li key={idx}>
+              {item.title}{' '}
+              <button data-remove onClick={() => remove(idx)}>
+                X
+              </button>
+            </li>
+          ))}
       </ul>
     </div>
   )

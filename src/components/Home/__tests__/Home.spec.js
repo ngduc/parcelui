@@ -31,4 +31,14 @@ describe('can render', () => {
       .onClick()
     expect(wrapper.find('ul').html()).not.toMatch(/Todo Item 1/)
   })
+
+  it('can fetch items', async () => {
+    const wrapper = mount(<Home />)
+    await wrapper
+      .find('button[data-fetch]')
+      .first()
+      .props()
+      .onClick()
+    expect(wrapper.find('ul').html().length).toBeGreaterThan(500)
+  })
 })
