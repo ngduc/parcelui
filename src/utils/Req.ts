@@ -10,7 +10,7 @@ const DEFAULT_PARAMS = {
   cache: 'no-cache',
   credentials: 'omit' // include OR omit
 }
-const baseURL = 'http://localhost:3003/' // process.env.REACT_APP_API_BASE_URL
+const baseURL = process.env.API_BASE_URL // 'https://localhost:3003/';
 let token = ''
 
 /* --------------------------------------------------------------------------- */
