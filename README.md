@@ -10,6 +10,7 @@ And more:
 - CSS scoping using CSS Modules: just import a local CSS or SASS file and use it.
 - Store management with react-easy-state (easier than Redux, MobX).
 - Component unit testing with Jest & Enzyme.
+- Making Ajax requests using Whatwg-fetch Req with Mock APIs (json-server).
 
 ### 🔧 Installation
 
@@ -29,7 +30,7 @@ yarn
 
 ```
 yarn build      build for PROD to static directory ./dist
-yarn dev        launch DEV mode takes 1.4s (tsc watch, auto reload)
+yarn dev        launch DEV mode takes 1.4s (tsc watch, parcel, json-server)
 yarn dev:test   run jest --watch (auto run test files)
 ```
 

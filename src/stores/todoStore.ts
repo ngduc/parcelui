@@ -1,17 +1,25 @@
 import { store } from 'react-easy-state'
+import { reqGet } from 'utils/Req'
 
 // Example: https://github.com/solkimicreb/react-easy-state/tree/master/examples/todo-mvc
 
-const todos = store({
+const _store = store({
+  isLoading: false,
   items: [{ title: 'Todo Item 1', done: true }, { title: 'Todo Item 2', done: false }],
+  async fetchItems() {
+    _store.isLoading = true
+    const { res } = await reqGet('todos')
+    _store.items = res
+    _store.isLoading = false
+  },
 
   create({ title = `New Todo Item - ${+new Date()}` } = {}) {
-    todos.items.push({ title, done: false })
+    _store.items.push({ title, done: false })
   },
 
   remove(index) {
-    todos.items.splice(index, 1)
+    _store.items.splice(index, 1)
   }
 })
 
-export default todos
+export default _store
