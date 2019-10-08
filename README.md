@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/ngduc/parcelui.svg?branch=master)](https://travis-ci.org/ngduc/parcelui)
 
-Parcel + Typescript + React + Router + CSS Modules + SASS + Jest
+Parcel + Typescript + React/Preact + Router + CSS Modules + SASS + Jest + Api-Now
 
 And more:
 
@@ -11,6 +11,7 @@ And more:
 - Store management with react-easy-state (easier than Redux, MobX).
 - Component unit testing with Jest & Enzyme.
 - Making Ajax requests using Whatwg-fetch Req with Mock APIs (json-server).
+- Mock API server with [api-now](https://github.com/ngduc/api-now).
 
 ### 🔧 Installation
 
@@ -29,9 +30,13 @@ yarn
 ### ⚙️ Commands
 
 ```
-yarn build      build for PROD to static directory ./dist
-yarn dev        launch DEV mode takes 1.4s (tsc watch, parcel, json-server)
-yarn dev:test   run jest --watch (auto run test files)
+yarn mock-api         launch mock API Server using https://github.com/ngduc/api-now
+
+yarn dev              launch DEV mode takes 1.4s (tsc watch, parcel & mock-api)
+yarn test:watch       run jest --watch (auto run test files)
+
+yarn build            build for PROD to static directory ./dist
+yarn serve            serve static built dir "./dist" using api-now (or any web server)
 ```
 
 ### CSS
