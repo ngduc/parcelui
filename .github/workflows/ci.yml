@@ -30,6 +30,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+
+    - name: Build and Deploy
       - uses: actions/checkout@v2
       - uses: amondnet/now-deployment@v2
         with:
