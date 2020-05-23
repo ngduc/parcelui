@@ -47,6 +47,6 @@ yarn serve            serve static built dir "./dist" using api-now (or any web 
 
 Recommend:
 
-- VSCode & prettier addon
+- VSCode & prettier addon.
 
 <img src="tools/dev.jpg">
