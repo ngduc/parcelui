@@ -6,13 +6,12 @@ name: CI
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-
   deploy:
     runs-on: ubuntu-latest
     steps:
@@ -20,14 +19,14 @@ jobs:
       - uses: amondnet/now-deployment@v2
         with:
           zeit-token: ${{ secrets.ZEIT_TOKEN }} # Required
-          github-token: ${{ secrets.GITHUB_TOKEN }} #Optional 
+          github-token: ${{ secrets.GITHUB_TOKEN }} #Optional
           now-org-id: ${{ secrets.ZEIT_ORG_ID }} #Required
-          now-project-id: ${{ ZEIT_PROJECT_ID }} #Required 
+          now-project-id: ${{ ZEIT_PROJECT_ID }} #Required
 
-    - name: Clean up
-      uses: ngduc/clean-up-action@master
-      with:
-        userId: ngducParcelUI # your unique userId
-        expiryMins: 1 # after X minutes, invoke URL to clean up
-        postUrl: https://end53hx4vqglh.x.pipedream.net/
-        postPayload: '{ "cleanUpThisId": 1234 }'
+      - name: Clean up
+        uses: ngduc/clean-up-action@master
+        with:
+          userId: ngducParcelUI # your unique userId
+          expiryMins: 1 # after X minutes, invoke URL to clean up
+          postUrl: https://end53hx4vqglh.x.pipedream.net/
+          postPayload: '{ "cleanUpThisId": 1234 }'
