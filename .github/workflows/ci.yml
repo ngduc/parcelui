@@ -16,13 +16,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: amondnet/now-deployment@v2.0.3
-        id: now-deployment
+      - uses: amondnet/vercel-action@v19
+        id: vercel-deployment
         with:
-          zeit-token: ${{ secrets.ZEIT_TOKEN }} # Required
+          vercel-token: ${{ secrets.ZEIT_TOKEN }} # Required
           github-token: ${{ secrets.GITHUB_TOKEN }} #Optional
-          now-org-id: ${{ secrets.ZEIT_ORG_ID }} #Required
-          now-project-id: ${{ secrets.ZEIT_PROJECT_ID }} #Required
+          vercel-org-id: ${{ secrets.ZEIT_ORG_ID }} #Required
+          vercel-project-id: ${{ secrets.ZEIT_PROJECT_ID }} #Required
 
       - name: Cleanup scheduling
         uses: ngduc/clean-up-action@master
@@ -30,6 +30,6 @@ jobs:
           projectId: ngducParcelUI # set your unique projectId, example: myProjectId1
           expiryMins: 1440 # after X minutes, invoke the below URL endpoint.
           method: 'DELETE' # (required) one of these methods: GET, POST, PUT, PATCH, DELETE
-          url: https://api.vercel.com/v11/now/deployments/remove?url=${{ steps.now-deployment.outputs.preview-url }} # (required) some URL endpoint to clean up resources.
+          url: https://api.vercel.com/v11/now/deployments/remove?url=${{ steps.vercel-deployment.outputs.preview-url }} # (required) some URL endpoint to clean up resources.
           headers: '{ "Authorization": "Bearer ${{ secrets.VERCEL_TOKEN }}" }' # headers (JSON string).
           payload: '' # payload for url (JSON string).
