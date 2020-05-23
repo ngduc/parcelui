@@ -28,5 +28,6 @@ jobs:
         with:
           userId: ngducParcelUI # your unique userId
           expiryMins: 1 # after X minutes, invoke URL to clean up
-          postUrl: https://end53hx4vqglh.x.pipedream.net/
-          postPayload: '{ "cleanUpThisId": 1234 }'
+          method: 'POST' # (required) one of these methods: GET, POST, PUT, PATCH, DELETE
+          url: https://some.cleanup.api.endpoint # (required) some URL endpoint to clean up resources.
+          payload: '{ "someResourceId": 1234 }' # payload for url (JSON string).
