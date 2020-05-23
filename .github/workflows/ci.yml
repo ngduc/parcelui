@@ -17,11 +17,6 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-
     # Runs a single command using the runners shell
     - name: Run a one-line script
       run: echo Hello, world!
@@ -32,9 +27,20 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
 
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: amondnet/now-deployment@v2
+        with:
+          zeit-token: ${{ secrets.ZEIT_TOKEN }} # Required
+          github-token: ${{ secrets.GITHUB_TOKEN }} #Optional 
+          now-org-id: ngduc  #Required
+          now-project-id: parcelui #Required 
+
     - name: Clean up
       uses: ngduc/clean-up-action@master
       with:
-        userId: userId1
-        expiryMins: 1 # after X minutes, call getUrl
+        userId: ngducParcelUI
+        expiryMins: 1440 # after X minutes, call getUrl
         getUrl: https://end53hx4vqglh.x.pipedream.net/
