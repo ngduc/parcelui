@@ -37,7 +37,7 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "faker": "^4.1.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^24.9.0",
+    "jest": "^26.0.1",
     "parcel": "^1.11.0",
     "parcel-plugin-typed-css-modules": "^1.1.0",
     "postcss-modules": "^1.4.1",
