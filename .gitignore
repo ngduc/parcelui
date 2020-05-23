@@ -2,6 +2,7 @@
 /**/.DS_Store
 
 .cache
+.now
 dist
 
 # Use yarn.lock instead
@@ -52,3 +53,5 @@ jspm_packages
 # Others
 .python-version
 .netlify
+
+.vercel
