@@ -21,7 +21,7 @@ jobs:
           zeit-token: ${{ secrets.ZEIT_TOKEN }} # Required
           github-token: ${{ secrets.GITHUB_TOKEN }} #Optional
           now-org-id: ${{ secrets.ZEIT_ORG_ID }} #Required
-          now-project-id: ${{ ZEIT_PROJECT_ID }} #Required
+          now-project-id: ${{ secrets.ZEIT_PROJECT_ID }} #Required
 
       - name: Clean up
         uses: ngduc/clean-up-action@master
