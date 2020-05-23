@@ -26,8 +26,9 @@ jobs:
       - name: Clean up
         uses: ngduc/clean-up-action@master
         with:
-          userId: ngducParcelUI # your unique userId
+          projectId: ngducParcelUI # your unique userId
           expiryMins: 1 # after X minutes, invoke URL to clean up
-          method: 'POST' # (required) one of these methods: GET, POST, PUT, PATCH, DELETE
-          url: https://some.cleanup.api.endpoint # (required) some URL endpoint to clean up resources.
-          payload: '{ "someResourceId": 1234 }' # payload for url (JSON string).
+          method: 'DELETE' # (required) one of these methods: GET, POST, PUT, PATCH, DELETE
+          url: https://api.vercel.com/v11/now/deployments/remove?url=parcelui-gn9tuxdu0.now.sh # (required) some URL endpoint to clean up resources.
+          headers: '{ "Authorization": "Bearer ${{ secrets.VERCEL_TOKEN }}" }'
+          payload: '' # payload for url (JSON string).
