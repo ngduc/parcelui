@@ -118,5 +118,8 @@
     "utils": "./src/utils",
     "react": "./node_modules/preact/compat",
     "react-dom": "./node_modules/preact/compat"
+  },
+  "resolutions": {
+    "parcel-bundler": "1.12.4"
   }
 }
