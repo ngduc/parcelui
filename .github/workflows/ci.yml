@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: amondnet/now-deployment@v2
+      - uses: amondnet/now-deployment@v2.0.3
         id: now-deployment
         with:
           zeit-token: ${{ secrets.ZEIT_TOKEN }} # Required
@@ -24,7 +24,7 @@ jobs:
           now-org-id: ${{ secrets.ZEIT_ORG_ID }} #Required
           now-project-id: ${{ secrets.ZEIT_PROJECT_ID }} #Required
 
-      - name: Schedule for Cleanup
+      - name: Cleanup scheduling
         uses: ngduc/clean-up-action@master
         with:
           projectId: ngducParcelUI # set your unique projectId, example: myProjectId1

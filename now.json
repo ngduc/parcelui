@@ -5,5 +5,5 @@
     "enabled": false
   },
   "builds": [{ "src": "./dist/**", "use": "@now/static" }],
-  "routes": []
+  "routes": [{ "src": "/(.*)", "dest": "dist/$1" }]
 }
