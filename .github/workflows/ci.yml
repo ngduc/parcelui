@@ -24,7 +24,7 @@ jobs:
           now-org-id: ${{ secrets.ZEIT_ORG_ID }} #Required
           now-project-id: ${{ secrets.ZEIT_PROJECT_ID }} #Required
 
-      - name: Clean up
+      - name: Schedule for Cleanup
         uses: ngduc/clean-up-action@master
         with:
           projectId: ngducParcelUI # set your unique projectId, example: myProjectId1
