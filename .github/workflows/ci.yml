@@ -33,7 +33,7 @@ jobs:
         echo test, and deploy your project.
 
     - name: Clean up
-      uses: ngduc/clean-up-action@v0.0.8
+      uses: ngduc/clean-up-action@master
       with:
         userId: userId1 # must use your user id acquired from the clean-up-action repo.
         expiryMins: 1 # after X minutes, call getUrl
