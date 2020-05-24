@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/ngduc/parcelui.svg?branch=master)](https://travis-ci.org/ngduc/parcelui)
 
-Parcel + Typescript + React/Preact + Router + CSS Modules + SASS + Jest + Api-Now
+Parcel + Typescript + React/Preact + Router + CSS Modules + SASS + Jest + Api-Now + Github Actions CI
 
 And more:
 
@@ -43,10 +43,15 @@ yarn serve            serve static built dir "./dist" using api-now (or any web 
 
 - SCSS is recommended, but optional. You can also use ".css" files normally.
 
+### Github Actions CI
+
+- .github/workflows.ci.yml - build, deploy (vercel), cleanup.
+
 ### Others
 
 Recommend:
 
+- [React syntax](https://syntax.wiki)
 - VSCode & prettier addon
 
 <img src="tools/dev.jpg">
