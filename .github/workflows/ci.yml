@@ -14,22 +14,34 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [13.x]
     steps:
       - uses: actions/checkout@v2
-      - uses: amondnet/now-deployment@v2
-        id: now-deployment
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
         with:
-          zeit-token: ${{ secrets.ZEIT_TOKEN }} # Required
+          node-version: ${{ matrix.node-version }}
+      - name: Install Packages
+        run: npm install
+      - name: Build page
+        run: npm run build
+      - uses: ngduc/vercel-deploy-action@master
+        id: vercel-deployment
+        with:
+          vercel-cli: now
+          vercel-token: ${{ secrets.ZEIT_TOKEN }} # Required
           github-token: ${{ secrets.GITHUB_TOKEN }} #Optional
-          now-org-id: ${{ secrets.ZEIT_ORG_ID }} #Required
-          now-project-id: ${{ secrets.ZEIT_PROJECT_ID }} #Required
+          vercel-org-id: ${{ secrets.ZEIT_ORG_ID }} #Required
+          vercel-project-id: ${{ secrets.ZEIT_PROJECT_ID }} #Required
 
-      - name: Clean up
+      - name: Cleanup scheduling
         uses: ngduc/clean-up-action@master
         with:
-          projectId: ngducParcelUI # your unique userId
-          expiryMins: 1440 # after X minutes, invoke URL to clean up
+          projectId: ngducParcelUI # set your unique projectId, example: myProjectId1
+          expiryMins: 1440 # after X minutes, invoke the below URL endpoint.
           method: 'DELETE' # (required) one of these methods: GET, POST, PUT, PATCH, DELETE
-          url: https://api.vercel.com/v11/now/deployments/remove?url=${{ steps.now-deployment.outputs.preview-url }} # (required) some URL endpoint to clean up resources.
-          headers: '{ "Authorization": "Bearer ${{ secrets.VERCEL_TOKEN }}" }'
+          url: https://api.vercel.com/v11/now/deployments/remove?url=${{ steps.vercel-deployment.outputs.preview-url-host }} # (required) some URL endpoint to clean up resources.
+          headers: '{ "Authorization": "Bearer ${{ secrets.VERCEL_TOKEN }}" }' # headers (JSON string).
           payload: '' # payload for url (JSON string).
