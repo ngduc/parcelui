@@ -19,6 +19,7 @@ jobs:
       - uses: ngduc/vercel-deploy-action@master
         id: vercel-deployment
         with:
+          vercel-cli: now
           vercel-token: ${{ secrets.ZEIT_TOKEN }} # Required
           github-token: ${{ secrets.GITHUB_TOKEN }} #Optional
           vercel-org-id: ${{ secrets.ZEIT_ORG_ID }} #Required
